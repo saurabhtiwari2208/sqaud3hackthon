@@ -1,13 +1,13 @@
-package com.bankdetailssvc;
+// package com.bankdetailssvc;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class BankdetailssvcApplicationTests {
+// @SpringBootTest
+// class BankdetailssvcApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+// 	@Test
+// 	void contextLoads() {
+// 	}
 
-}
+// }
