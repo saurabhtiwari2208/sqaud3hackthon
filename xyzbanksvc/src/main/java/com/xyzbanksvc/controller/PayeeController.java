@@ -19,6 +19,7 @@ import com.xyzbanksvc.model.Payee;
 import com.xyzbanksvc.model.ResponseStatus;
 import com.xyzbanksvc.model.User;
 import com.xyzbanksvc.model.PayeeDetailsRequest;
+import com.xyzbanksvc.model.PayeeResponse;
 import com.xyzbanksvc.service.PayeeService;
 
 @RestController
@@ -73,7 +74,7 @@ public class PayeeController {
 
 	@PostMapping("/fetchFavPayeeDetails")
 	@ResponseBody
-	public List<Payee> fetchPayeeDetails(@RequestBody PayeeDetailsRequest payeeDetailsRequest) {
+	public List<PayeeResponse> fetchPayeeDetails(@RequestBody PayeeDetailsRequest payeeDetailsRequest) {
 		return payeeService.fetchFavPayeeDetails(payeeDetailsRequest);
 	}
 

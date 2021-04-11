@@ -3,7 +3,6 @@ package com.xyzbanksvc.model;
 public class PayeeDetailsRequest {
 	private String accountNo;
 	private String userId;
-	private int pageNo;
 
 	public String getAccountNo() {
 		return accountNo;
@@ -19,13 +18,5 @@ public class PayeeDetailsRequest {
 
 	public void setUserId(String userId) {
 		this.userId = userId;
-	}
-
-	public int getPageNo() {
-		return pageNo;
-	}
-
-	public void setPageNo(int pageNo) {
-		this.pageNo = pageNo;
 	}
 }

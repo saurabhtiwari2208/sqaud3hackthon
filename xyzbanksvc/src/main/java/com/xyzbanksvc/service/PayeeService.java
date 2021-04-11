@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.xyzbanksvc.model.Payee;
 import com.xyzbanksvc.model.PayeeDetailsRequest;
+import com.xyzbanksvc.model.PayeeResponse;
 
 /**
  * Payee Service for accessing the data from Payee Repository.
@@ -16,7 +17,7 @@ import com.xyzbanksvc.model.PayeeDetailsRequest;
 @Service
 public interface PayeeService {
 
-	List<Payee> fetchFavPayeeDetails(PayeeDetailsRequest payeeDetailsRequest);
+	List<PayeeResponse> fetchFavPayeeDetails(PayeeDetailsRequest payeeDetailsRequest);
 
 	Payee modifyFavPayeeDetails(Payee payee);
 
