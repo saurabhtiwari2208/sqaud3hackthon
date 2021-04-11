@@ -5,11 +5,13 @@ import static org.mockito.Mockito.when;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.xyzbanksvc.model.Payee;
 import com.xyzbanksvc.repository.PayeeRepository;
+import com.xyzbanksvc.service.PayeeServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PayeeServiceImplTest {
@@ -17,7 +19,8 @@ public class PayeeServiceImplTest {
 	@Mock
 	PayeeRepository payeeRepository;
 
-	
+	@InjectMocks
+	PayeeServiceImpl payeeServiceImpl;
 
 	@Test
 	public void modifyFavPayeeDetailsTest() {
@@ -34,7 +37,7 @@ public class PayeeServiceImplTest {
 		
 		when(payeeRepository.modifyFavPayeeDetails(payee.getPayeeName(), payee.getPayeeAccountNo(),payee.getAccountNo())).thenReturn(i);
 		
-		int j= payeeRepository.modifyFavPayeeDetails(payee.getPayeeName(), payee.getPayeeAccountNo(),payee.getAccountNo());
+		int j= payeeServiceImpl.modifyFavPayeeDetails(payee);
 		
 		assertEquals(1, j);
 		
