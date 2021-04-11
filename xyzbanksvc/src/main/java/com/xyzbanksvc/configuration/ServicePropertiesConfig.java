@@ -7,10 +7,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ServicePropertiesConfig {
     
-    @Value("authcreds.username")
+    @Value("${authcreds.username}")
     private String basicAuthUsername;
 
-    @Value("authcreds.password")
+    @Value("${authcreds.password}")
     private String basicAuthPassword;
 
     public String getBasicAuthUsername()
