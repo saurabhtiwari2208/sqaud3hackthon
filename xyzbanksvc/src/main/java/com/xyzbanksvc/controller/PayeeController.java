@@ -29,20 +29,20 @@ public class PayeeController {
 			MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> updateFavPayeeDetails(@RequestBody Payee payee) {
 
-		ResponseEntity<Object> resp = null;	
+		ResponseEntity<Object> resp = null;
 		ResponseStatus responseStatus = new ResponseStatus();
-		
+
 		Payee payeeResp = payeeService.modifyFavPayeeDetails(payee);
-		if(payeeResp!=null) {
+		if (payeeResp != null) {
 			responseStatus.setStatusCode(ServiceConstants.SUCCESS_STATUS_CODE);
-            responseStatus.setMessage(ServiceConstants.FAV_PAYEE_UPDATED);
+			responseStatus.setMessage(ServiceConstants.FAV_PAYEE_UPDATED);
 			resp = new ResponseEntity<Object>(responseStatus, HttpStatus.OK);
-		}else {
+		} else {
 			responseStatus.setStatusCode(ServiceConstants.FAILURE_STATUS_CODE);
-            responseStatus.setMessage(ServiceConstants.FAV_PAYEE_UPDATE_FAILED);
+			responseStatus.setMessage(ServiceConstants.FAV_PAYEE_UPDATE_FAILED);
 			resp = new ResponseEntity<Object>(responseStatus, HttpStatus.OK);
 		}
-		
+
 		payeeService.modifyFavPayeeDetails(payee);
 
 		return resp;
@@ -50,8 +50,14 @@ public class PayeeController {
 
 	@PostMapping("/fetchFavPayeeDetails")
 	@ResponseBody
-	public List<Payee> saveUser(@RequestBody PayeeDetailsRequest payeeDetailsRequest) {
+	public List<Payee> fetchPayeeDetails(@RequestBody PayeeDetailsRequest payeeDetailsRequest) {
 		return payeeService.fetchFavPayeeDetails(payeeDetailsRequest);
 	}
 
+	@PostMapping("/addFavPayeeDetails")
+	@ResponseBody
+	public ResponseEntity<String> addFavPayeeDetails(@RequestBody Payee payee) {
+		String message = payeeService.addPayeeDetails(payee);
+		return new ResponseEntity<>(message, HttpStatus.OK);
+	}
 }

@@ -19,4 +19,6 @@ public interface PayeeService {
 	List<Payee> fetchFavPayeeDetails(PayeeDetailsRequest payeeDetailsRequest);
 
 	Payee modifyFavPayeeDetails(Payee payee);
+
+	String addPayeeDetails(Payee payee);
 }

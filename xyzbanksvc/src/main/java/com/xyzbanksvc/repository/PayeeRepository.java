@@ -15,4 +15,7 @@ public interface PayeeRepository extends JpaRepository<Payee, Integer> {
 
 	@Query("select p from Payee p")
 	List<Payee> findPayeeByUserAndAccountId(String userId, String accountId, int pageNo);
+
+	@Query("select p from Payee p where p.payeeAccountNo=?1")
+	Payee findPayeeByAccountNo(String payeeAccountNumber);
 }
