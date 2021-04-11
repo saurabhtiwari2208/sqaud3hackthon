@@ -19,6 +19,8 @@ public class Payee {
 
 	private String payeeName;
 
+	private String userId;
+
 	public String getAccountNo() {
 		return accountNo;
 	}
@@ -41,5 +43,13 @@ public class Payee {
 
 	public void setPayeeName(String payeeName) {
 		this.payeeName = payeeName;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 }

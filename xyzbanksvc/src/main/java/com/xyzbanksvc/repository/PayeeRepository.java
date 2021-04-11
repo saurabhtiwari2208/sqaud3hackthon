@@ -13,6 +13,6 @@ public interface PayeeRepository extends JpaRepository<Payee, Integer> {
 
 	Payee modifyFavPayeeDetails(Payee payee);
 
-	@Query("select p from Payee p inner join UserDetails ud inner join User u where p.accountNo=?2 and u.userId=?1")
+	@Query("select p from Payee p")
 	List<Payee> findPayeeByUserAndAccountId(String userId, String accountId, int pageNo);
 }
