@@ -15,6 +15,14 @@ public class User {
 
 	private String password;
 
+	public String getUserId() {
+		return password;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
 	public String getPassword() {
 		return password;
 	}
