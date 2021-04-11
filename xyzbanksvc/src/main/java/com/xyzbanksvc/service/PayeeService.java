@@ -19,9 +19,9 @@ public interface PayeeService {
 
 	List<PayeeResponse> fetchFavPayeeDetails(PayeeDetailsRequest payeeDetailsRequest);
 
-	Payee modifyFavPayeeDetails(Payee payee);
+	int modifyFavPayeeDetails(Payee payee);
 
-	Payee deleteFavPayeeDetails(Payee payee);
+	int deleteFavPayeeDetails(Payee payee);
 
 	String addPayeeDetails(Payee payee);
 }

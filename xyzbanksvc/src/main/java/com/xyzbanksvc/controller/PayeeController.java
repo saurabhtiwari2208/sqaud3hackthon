@@ -35,8 +35,8 @@ public class PayeeController {
 		ResponseEntity<Object> resp = null;	
 		ResponseStatus responseStatus = new ResponseStatus();
 		
-		Payee payeeResp = payeeService.modifyFavPayeeDetails(payee);
-		if(payeeResp!=null) {
+		int records = payeeService.modifyFavPayeeDetails(payee);
+		if(records > 0 ) {
 			responseStatus.setStatusCode(ServiceConstants.SUCCESS_STATUS_CODE);
             responseStatus.setMessage(ServiceConstants.FAV_PAYEE_UPDATED);
 			resp = new ResponseEntity<Object>(responseStatus, HttpStatus.OK);
@@ -57,8 +57,8 @@ public class PayeeController {
 		ResponseEntity<Object> resp = null;	
 		ResponseStatus responseStatus = new ResponseStatus();
 		
-		Payee payeeResp = payeeService.deleteFavPayeeDetails(payee);
-		if(payeeResp!=null) {
+		int records = payeeService.deleteFavPayeeDetails(payee);
+		if(records > 0) {
 			responseStatus.setStatusCode(ServiceConstants.SUCCESS_STATUS_CODE);
             responseStatus.setMessage(ServiceConstants.FAV_PAYEE_DELETED);
 			resp = new ResponseEntity<Object>(responseStatus, HttpStatus.OK);
