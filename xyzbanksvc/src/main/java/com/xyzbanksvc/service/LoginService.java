@@ -40,4 +40,9 @@ public class LoginService {
         }
         return responseStatus;
     }
+
+    // public static void main(String[] args) {
+    //     PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    //     System.out.println(encoder.encode("user123"));
+    // }
 }
