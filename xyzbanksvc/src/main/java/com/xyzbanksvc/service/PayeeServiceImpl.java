@@ -67,6 +67,9 @@ public class PayeeServiceImpl implements PayeeService {
 
 	@Override
 	public String addPayeeDetails(Payee payee) {
+		if (payee.getPayeeAccountNo().length() > 20) {
+			return "IBAN Account Number is greater than 20.";
+		}
 		UserDetails details = userDetailsRepository.getUserDetails(payee.getUserId(), payee.getAccountNo());
 		if (Objects.isNull(details)) {
 			return "Invalid UserId or Account ID";
