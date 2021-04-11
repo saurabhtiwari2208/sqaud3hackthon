@@ -13,4 +13,5 @@ import com.xyzbanksvc.model.Payee;
 public interface PayeeService {
 
 	List<Payee> fetchFavPayeeDetails();
+	Payee modifyFavPayeeDetails(Payee payee);
 }

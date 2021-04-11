@@ -8,4 +8,6 @@ import com.xyzbanksvc.model.Payee;
 @Repository
 public interface PayeeRepository extends JpaRepository<Payee, Integer> {
 
+	Payee modifyFavPayeeDetails(Payee payee);
+
 }

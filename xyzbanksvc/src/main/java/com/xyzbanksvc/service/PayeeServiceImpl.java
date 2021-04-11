@@ -17,4 +17,12 @@ public class PayeeServiceImpl implements PayeeService {
 		return null;
 	}
 
+	@Override
+	public Payee modifyFavPayeeDetails(Payee payee) {
+		// TODO Auto-generated method stub
+		return payeeRepository.modifyFavPayeeDetails( payee);
+	}
+	
+
+	
 }
