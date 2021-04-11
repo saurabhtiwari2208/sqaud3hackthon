@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.xyzbanksvc.model.Payee;
 
@@ -14,9 +15,12 @@ import com.xyzbanksvc.model.Payee;
 public interface PayeeRepository extends JpaRepository<Payee, Integer> {
 
 	@Modifying
+	@Transactional
 	@Query(value = "update Payee p set p.payeeName=?1, p.payeeAccountNo=?2 where p.accountNo=?3")
 	int modifyFavPayeeDetails(String payeeName, String payeeAccountNo, String accountNo);
 
+	@Modifying
+	@Transactional
 	@Query(value = "DELETE FROM Payee p where p.accountNo in ( select accountNo from UserDetails where userId=?1 and accountNo=?2) and p.payeeAccountNo=?3")
 	int deleteFavPayeeDetails(String userId, String accountNo, String payeeAccountNo);
 

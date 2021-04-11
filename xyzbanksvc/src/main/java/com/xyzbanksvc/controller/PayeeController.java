@@ -52,7 +52,7 @@ public class PayeeController {
 	
 	@DeleteMapping(value = "/delFavPayeeDetails", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = {
 			MediaType.APPLICATION_JSON_VALUE })
-	public ResponseEntity<Object> delFavPayeeDetails(@RequestBody Payee payee, @RequestBody User user ) {
+	public ResponseEntity<Object> delFavPayeeDetails(@RequestBody Payee payee) {
 
 		ResponseEntity<Object> resp = null;	
 		ResponseStatus responseStatus = new ResponseStatus();
