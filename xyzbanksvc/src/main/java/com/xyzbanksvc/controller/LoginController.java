@@ -1,6 +1,5 @@
 package com.xyzbanksvc.controller;
 
-import com.xyzbanksvc.constants.ServiceConstants;
 import com.xyzbanksvc.model.ResponseStatus;
 import com.xyzbanksvc.model.User;
 import com.xyzbanksvc.service.LoginService;
