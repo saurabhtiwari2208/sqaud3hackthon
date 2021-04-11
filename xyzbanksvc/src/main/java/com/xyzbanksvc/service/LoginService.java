@@ -35,6 +35,8 @@ public class LoginService {
             String encodedPassword = shaUtils.digest(user.getPassword(), ServiceConstants.ENCODING_ALGO);
             if(fetchedUser.get().getPassword().equals(encodedPassword))
             {
+                System.out.println("incoming encodedPassword:"+encodedPassword);
+                System.out.println("fetched encodedPassword:"+fetchedUser.get().getPassword());
                 responseStatus.setStatusCode(ServiceConstants.SUCCESS_STATUS_CODE);
                 responseStatus.setMessage(ServiceConstants.AUTH_SUCCESS_MESSAGE);
             }
