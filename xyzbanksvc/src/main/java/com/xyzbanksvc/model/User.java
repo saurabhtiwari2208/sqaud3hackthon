@@ -1,9 +1,23 @@
 package com.xyzbanksvc.model;
 
-public class User {
-    
-    String userId;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-    String password;
-    
+@Entity
+@Table(name = "user")
+public class User {
+	@Id
+	private String userId;
+
+	private String password;
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 }
