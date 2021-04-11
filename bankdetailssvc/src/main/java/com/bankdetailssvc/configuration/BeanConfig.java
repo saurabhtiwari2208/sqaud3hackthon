@@ -1,9 +1,7 @@
-package com.xyzbanksvc.configuration;
+package com.bankdetailssvc.configuration;
 
 import javax.annotation.PostConstruct;
 
-import com.xyzbanksvc.model.User;
-import com.xyzbanksvc.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,26 +13,9 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class BeanConfig {
 
-	@Autowired
-	UserRepository userRepo;
-
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
 	}
 
-	@Bean
-	public RestTemplate restTemplate() {
-		return new RestTemplate();
-	}
-
-	@PostConstruct
-	public void loadUserCreds() {
-		User user = new User();
-		for (int i = 0; i < 10; i++) {
-			user.setUserId("user" + i);
-			user.setPassword(passwordEncoder().encode("user" + i + "@123"));
-			userRepo.save(user);
-		}
-	}
 }

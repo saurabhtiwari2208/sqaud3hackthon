@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.xyzbanksvc.constants.ServiceConstants;
 import com.xyzbanksvc.model.Payee;
 import com.xyzbanksvc.model.PayeeDetailsRequest;
 import com.xyzbanksvc.model.PayeeResponse;
@@ -24,6 +25,8 @@ public class PayeeServiceImpl implements PayeeService {
 	private PayeeRepository payeeRepository;
 	@Autowired
 	private UserDetailsRepository userDetailsRepository;
+	@Autowired
+	private BankService bankService;
 
 	@Override
 	public List<PayeeResponse> fetchFavPayeeDetails(PayeeDetailsRequest payeeDetailsRequest) {
@@ -36,7 +39,15 @@ public class PayeeServiceImpl implements PayeeService {
 			response.setPayeeAccountNo(data.getPayeeAccountNo());
 			response.setUserId(data.getUserId());
 			response.setPayeeName(data.getPayeeName());
-			response.setBankName("Sample");
+			if (data.getPayeeAccountNo().length() <= ServiceConstants.ACCOUNT_NO_MIN_LENGTH
+					&& data.getPayeeAccountNo().length() > ServiceConstants.ACCOUNT_NO_MIN_LENGTH
+					&& data.getPayeeAccountNo().length() < ServiceConstants.ACCOUNT_NO_MAX_LENGTH) {
+				response.setBankName("");
+			} else {
+				String bankCode = data.getPayeeAccountNo().substring(ServiceConstants.ACCOUNT_NO_MIN_LENGTH,
+						ServiceConstants.SUBSTRING_COUNT);
+				response.setBankName(bankService.getBankDetails(bankCode).getBankName());
+			}
 			return response;
 		}).collect(Collectors.toList());
 	}
