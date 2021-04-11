@@ -29,9 +29,14 @@ public class PayeeServiceImpl implements PayeeService {
 
 	@Override
 	public Payee modifyFavPayeeDetails(Payee payee) {
-		return payeeRepository.modifyFavPayeeDetails(payee);
+		return payeeRepository.modifyFavPayeeDetails(payee.getPayeeName(), payee.getPayeeAccountNo(), payee.getAccountNo() );
 	}
 
+	@Override
+	public Payee deleteFavPayeeDetails(Payee payee) {
+		// TODO Auto-generated method stub
+		return payeeRepository.deleteFavPayeeDetails(payee.getUserId(), payee.getAccountNo(), payee.getPayeeAccountNo());
+	}
 	@Override
 	public String addPayeeDetails(Payee payee) {
 		UserDetails details = userDetailsRepository.getUserDetails(payee.getUserId(), payee.getAccountNo());

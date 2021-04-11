@@ -11,7 +11,11 @@ import com.xyzbanksvc.model.Payee;
 @Repository
 public interface PayeeRepository extends JpaRepository<Payee, Integer> {
 
-	Payee modifyFavPayeeDetails(Payee payee);
+	@Query(value = "update Payee p set p.payeeName=?1, p.payeeAccountNo=?2 where p.accountNo=?3") 
+	Payee modifyFavPayeeDetails(String payeeName, String payeeAccountNo, String accountNo );
+	
+	@Query(value = "DELETE FROM Payee p where p.accountNo in ( select accountNo from UserDetails where userId=1? and accountNo=?2) and p.payeeAccountNo=?3")  
+	Payee deleteFavPayeeDetails(String userId, String accountNo, String payeeAccountNo );
 
 	@Query("select p from Payee p")
 	List<Payee> findPayeeByUserAndAccountId(String userId, String accountId, int pageNo);

@@ -20,5 +20,7 @@ public interface PayeeService {
 
 	Payee modifyFavPayeeDetails(Payee payee);
 
+	Payee deleteFavPayeeDetails(Payee payee);
+
 	String addPayeeDetails(Payee payee);
 }
